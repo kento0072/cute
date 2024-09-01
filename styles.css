@@ -1,0 +1,104 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #86f9ff; /* สีฟ้าอ่อนสดใส */
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden; /* ซ่อน scroll bar เพื่อให้หัวใจลอยได้เต็มหน้าจอ */
+}
+
+.container {
+    position: relative;
+    text-align: center;
+}
+
+#popupButton {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #ff0000; /* สีเขียวเข้ม */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#popupButton:hover {
+    background-color: #a50000; /* สีเขียวเข้มกว่าเมื่อ hover */
+}
+
+.image-popup {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border: rgb(255, 0, 204) 5px solid;
+    border-radius: 50%;
+    background-size: cover;
+    rotate: 266deg;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s;
+    opacity: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+#message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    color: #ff0000; /* สีเขียวเข้ม */
+    opacity: 0;
+    transition: opacity 1s ease;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* เพิ่มเงาให้ข้อความ */
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    width: 30px;
+    height: 30px;
+    background-color: #ff4081; /* สีชมพู */
+    transform: rotate(-45deg);
+    animation: float 5s infinite ease-in;
+    opacity: 0;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #ff4081;
+}
+
+.heart::before {
+    top: -15px;
+    left: 0;
+}
+
+.heart::after {
+    left: 15px;
+    top: 0;
+}
+
+@keyframes float {
+    0% {
+        transform: translateX(0) rotate(-45deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(20px) rotate(-45deg);
+    }
+    100% {
+        transform: translateY(-600px) translateX(-20px) rotate(-45deg);
+        opacity: 0;
+    }
+}
